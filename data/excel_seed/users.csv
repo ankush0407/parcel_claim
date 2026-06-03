@@ -1,0 +1,5 @@
+user_id,email,full_name,role,password_hash,is_active,created_at,updated_at
+12a4da2d-07f9-47a7-9f1e-f3f3ed2f5001,sarah.mitchell@globaltradegroup.com,Sarah Mitchell,merchant,,TRUE,2026-01-02T09:00:00Z,2026-01-02T09:00:00Z
+12a4da2d-07f9-47a7-9f1e-f3f3ed2f5002,k.weber@europeanautomotive.de,Klaus Weber,merchant,,TRUE,2026-01-03T09:00:00Z,2026-01-03T09:00:00Z
+12a4da2d-07f9-47a7-9f1e-f3f3ed2f5003,cx.ops@maersk-deliver.com,CX Operations Team,cx_team,,TRUE,2026-01-01T09:00:00Z,2026-01-01T09:00:00Z
+12a4da2d-07f9-47a7-9f1e-f3f3ed2f5004,admin.tracking@maersk-deliver.com,Tracking Admin,admin,,TRUE,2026-01-01T09:00:00Z,2026-01-01T09:00:00Z

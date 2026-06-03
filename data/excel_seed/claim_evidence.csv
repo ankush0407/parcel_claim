@@ -1,0 +1,5 @@
+evidence_id,claim_id,evidence_type,file_name,file_url,file_size_bytes,uploaded_by_user_id,uploaded_at
+aa9b6f0d-4ff9-42c9-8d94-8cb7f2367301,c7a6cd46-8f84-43f9-b95a-b9fa668f3101,invoice,Commercial_Invoice_MAEU1234567890.pdf,,245000,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5001,2026-02-10T09:00:00Z
+aa9b6f0d-4ff9-42c9-8d94-8cb7f2367302,c7a6cd46-8f84-43f9-b95a-b9fa668f3101,bill_of_lading,Bill_of_Lading.pdf,,189000,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5001,2026-02-10T09:05:00Z
+aa9b6f0d-4ff9-42c9-8d94-8cb7f2367303,c7a6cd46-8f84-43f9-b95a-b9fa668f3102,photo,Damage_Photos_001.jpg,,3200000,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5002,2026-03-15T10:00:00Z
+aa9b6f0d-4ff9-42c9-8d94-8cb7f2367304,c7a6cd46-8f84-43f9-b95a-b9fa668f3102,survey_report,Survey_Report.pdf,,420000,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5002,2026-03-15T10:05:00Z

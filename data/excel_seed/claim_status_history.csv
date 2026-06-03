@@ -1,0 +1,6 @@
+history_id,claim_id,old_status,new_status,changed_by_user_id,changed_at,change_note
+
+fe387bb7-e560-4683-873a-aa4ec4b602ab,7b0bd8c2-1f4c-4559-947b-5836cec16621,,submitted,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5001,2026-05-11T17:37:09.909Z,Initial submission by merchant
+69d1eb8b-081b-456a-9b80-f36db128381e,7b0bd8c2-1f4c-4559-947b-5836cec16621,submitted,approved,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5003,2026-05-11T17:38:22.725Z,Auto-approved: D-scan = false and time since last scan is greater than 10 days.
+1b1bd930-b143-4db4-8697-69e7914be09c,16d4ed0f-0b1b-4400-9bec-5573e9ba812f,,submitted,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5001,2026-05-11T17:41:40.098Z,Initial submission by merchant
+9bb2dec0-bffd-48fe-b891-6559ec73538e,16d4ed0f-0b1b-4400-9bec-5573e9ba812f,submitted,rejected,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5003,2026-05-11T17:41:57.584Z,Auto-rejected: Has D-scan = true.

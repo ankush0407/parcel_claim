@@ -1,0 +1,5 @@
+carrier_id,carrier_name,scac_code,supports_tracking_ingestion,supports_auto_claim_rules,created_at
+72b4033f-f57e-4f89-9e11-601ba8bcb101,Maersk,MAEU,TRUE,TRUE,2026-01-01T09:00:00Z
+72b4033f-f57e-4f89-9e11-601ba8bcb102,DHL,DHLE,TRUE,TRUE,2026-01-01T09:00:00Z
+72b4033f-f57e-4f89-9e11-601ba8bcb103,UPS,UPSN,TRUE,TRUE,2026-01-01T09:00:00Z
+72b4033f-f57e-4f89-9e11-601ba8bcb104,FedEx,FDXE,TRUE,TRUE,2026-01-01T09:00:00Z

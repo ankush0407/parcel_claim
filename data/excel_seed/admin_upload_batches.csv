@@ -1,0 +1,2 @@
+batch_id,uploaded_by,source_name,file_name,uploaded_at,records_total,records_accepted,records_rejected,processing_status
+2e760f1d-6764-4ecd-9d1e-77890e23b101,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5004,Carrier SFTP,tracking_events_2026_04_30.csv,2026-04-30T06:00:00Z,1250,1248,2,processed

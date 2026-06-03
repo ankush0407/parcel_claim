@@ -1,0 +1,4 @@
+merchant_id,merchant_code,legal_name,display_name,contact_email,contact_phone,billing_currency,is_active,created_at,updated_at
+8dfc4f97-cfe1-4fa8-b412-c495f58d7b01,MERCH-GTG,Global Trade Group LLC,Global Trade Group,sarah.mitchell@globaltradegroup.com,123456789,USD,TRUE,2026-01-02T09:00:00Z,2026-01-02T09:00:00Z
+8dfc4f97-cfe1-4fa8-b412-c495f58d7b02,MERCH-EAG,European Automotive GmbH,European Automotive,k.weber@europeanautomotive.de,123456789,EUR,TRUE,2026-01-03T09:00:00Z,2026-01-03T09:00:00Z
+8dfc4f97-cfe1-4fa8-b412-c495f58d7b03,MERCH-NFA,Nordic Fashion A/S,Nordic Fashion,s.andersen@nordicfashion.dk,123456789,EUR,TRUE,2026-01-05T09:00:00Z,2026-01-05T09:00:00Z

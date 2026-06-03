@@ -1,0 +1,3 @@
+note_id,claim_id,note_text,is_internal,created_by_user_id,created_at
+b44ef7b5-35ea-4bd8-b8df-0f6f0db4f201,c7a6cd46-8f84-43f9-b95a-b9fa668f3101,Customer confirms no partial delivery from destination warehouse,true,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5003,2026-02-12T10:00:00Z
+b44ef7b5-35ea-4bd8-b8df-0f6f0db4f202,c7a6cd46-8f84-43f9-b95a-b9fa668f3102,Carrier requested additional packing photographs,true,12a4da2d-07f9-47a7-9f1e-f3f3ed2f5003,2026-03-18T11:00:00Z
