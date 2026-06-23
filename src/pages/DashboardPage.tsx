@@ -59,7 +59,7 @@ export default function DashboardPage() {
         subtitle="Overview of all shipping claims — May 2026"
       />
 
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 md:px-8 py-4 md:py-6 space-y-6">
         {/* KPI Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
           <MetricCard

@@ -121,7 +121,7 @@ export default function ClaimsPage() {
         subtitle={`${claims.length} total claims across all carriers`}
       />
 
-      <div className="px-8 py-6 space-y-4">
+      <div className="px-4 md:px-8 py-4 md:py-6 space-y-4">
         {(user?.role === 'cx_team' || user?.role === 'admin') && (
           <div className="bg-white rounded-xl shadow-sm p-4 flex items-center justify-between gap-3">
             <div>

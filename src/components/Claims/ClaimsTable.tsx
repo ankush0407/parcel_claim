@@ -66,7 +66,42 @@ export default function ClaimsTable({ claims, selectedIds, onSelectAll, onSelect
 
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-      <div className="overflow-x-auto">
+      {/* Mobile card list — visible below md */}
+      <div className="md:hidden divide-y divide-gray-100">
+        {sorted.length === 0 && (
+          <p className="text-center py-12 text-gray-400 text-sm">No claims found matching your filters.</p>
+        )}
+        {sorted.map((claim) => (
+          <div
+            key={claim.id}
+            onClick={() => navigate(`/claims/${claim.id}`)}
+            className="p-4 cursor-pointer hover:bg-blue-50/30 transition-colors"
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <div>
+                <p className="font-semibold text-maersk-navy text-sm">{claim.claimNumber}</p>
+                <p className="text-xs text-gray-400 font-mono">{claim.trackingNumber}</p>
+              </div>
+              <StatusBadge status={claim.status} size="sm" />
+            </div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+              {!isMerchant && <span>{claim.carrier}</span>}
+              <span><TypeBadge type={claim.type} size="sm" /></span>
+              <span className="font-semibold text-maersk-navy">{formatCurrency(claim.claimedAmount, claim.currency)}</span>
+              <span>{formatDate(claim.filedDate)}</span>
+              <span className={clsx(
+                'px-1.5 py-0.5 rounded-full font-medium',
+                claim.daysOpen > 45 ? 'bg-red-50 text-red-600' :
+                claim.daysOpen > 20 ? 'bg-orange-50 text-orange-600' :
+                'bg-gray-50 text-gray-500'
+              )}>{claim.daysOpen}d open</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop table — hidden below md */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-50 border-b border-gray-100">
             <tr>

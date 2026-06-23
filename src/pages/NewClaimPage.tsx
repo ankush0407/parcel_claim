@@ -8,7 +8,7 @@ export default function NewClaimPage() {
         title="Submit New Claim"
         subtitle="Complete all steps to file a shipping claim"
       />
-      <div className="px-8 py-6">
+      <div className="px-4 md:px-8 py-4 md:py-6">
         <ClaimForm />
       </div>
     </div>

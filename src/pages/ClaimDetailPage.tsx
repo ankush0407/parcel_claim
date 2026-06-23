@@ -67,7 +67,7 @@ export default function ClaimDetailPage() {
         title={claim.claimNumber}
         subtitle={`${claim.carrier} · ${claim.type.replace('_', ' ')} · Filed ${new Date(claim.filedDate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}`}
       />
-      <div className="px-8 py-6">
+      <div className="px-4 md:px-8 py-4 md:py-6">
         <ClaimDetail claim={claim} />
       </div>
     </div>

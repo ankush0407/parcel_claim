@@ -9,7 +9,7 @@ export default function AdminTrackingPage() {
         subtitle="Admin-only area to ingest tracking feeds used by claim automation"
       />
 
-      <div className="px-8 py-6 space-y-5">
+      <div className="px-4 md:px-8 py-4 md:py-6 space-y-5">
         <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <h2 className="text-sm font-semibold text-maersk-navy mb-1">Upload carrier tracking file</h2>
           <p className="text-xs text-gray-500 mb-4">Supported format: CSV with tracking_number, event_code, event_status, event_time, event_location.</p>

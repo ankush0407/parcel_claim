@@ -56,7 +56,7 @@ export default function AnalyticsPage() {
         title="Analytics"
         subtitle="Claims performance insights and trends"
       />
-      <div className="px-8 py-6 space-y-6">
+      <div className="px-4 md:px-8 py-4 md:py-6 space-y-6">
         {/* Charts */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
           <ClaimsBarChart data={chartData} />

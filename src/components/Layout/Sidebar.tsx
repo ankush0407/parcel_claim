@@ -1,21 +1,14 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
-  LayoutDashboard,
-  FileText,
-  PlusCircle,
-  BarChart3,
-  Settings,
-  HelpCircle,
-  ChevronDown,
-  Ship,
-  Upload,
-  LogOut,
+  LayoutDashboard, FileText, PlusCircle, BarChart3,
+  Settings, HelpCircle, ChevronDown, Ship, Upload, LogOut, X,
 } from 'lucide-react';
 import clsx from 'clsx';
 import { useAuth } from '../../auth/AuthContext';
 import { fetchDashboardData } from '../../api/client';
 import { Claim } from '../../types';
+import { useSidebar } from './sidebar-context';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard', exact: true, roles: ['merchant', 'cx_team', 'admin'] },
@@ -33,54 +26,56 @@ const bottomItems = [
 export default function Sidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { open, close } = useSidebar();
   const allowedItems = navItems.filter((item) => user && item.roles.includes(user.role));
   const [statusCounts, setStatusCounts] = useState({ active: 0, pending: 0, escalated: 0 });
 
   useEffect(() => {
     let isMounted = true;
     async function loadStatusOverview() {
-      if (!user) {
-        if (isMounted) setStatusCounts({ active: 0, pending: 0, escalated: 0 });
-        return;
-      }
-
+      if (!user) { if (isMounted) setStatusCounts({ active: 0, pending: 0, escalated: 0 }); return; }
       try {
         const data = await fetchDashboardData(user.id);
         const claims = data.claims as Claim[];
         const active = claims.filter((c) => !['approved', 'rejected', 'closed'].includes(c.status)).length;
         const pending = claims.filter((c) => ['submitted', 'under_review', 'documentation_requested', 'carrier_review'].includes(c.status)).length;
         const escalated = claims.filter((c) => c.status === 'escalated').length;
-        if (isMounted) {
-          setStatusCounts({ active, pending, escalated });
-        }
+        if (isMounted) setStatusCounts({ active, pending, escalated });
       } catch {
-        if (isMounted) {
-          setStatusCounts({ active: 0, pending: 0, escalated: 0 });
-        }
+        if (isMounted) setStatusCounts({ active: 0, pending: 0, escalated: 0 });
       }
     }
-
     loadStatusOverview();
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, [user]);
 
   return (
-    <aside className="w-64 min-h-screen bg-maersk-navy flex flex-col">
-      {/* Logo */}
+    <aside
+      className={clsx(
+        'w-64 bg-maersk-navy flex flex-col flex-shrink-0',
+        // Mobile: fixed drawer that slides in/out
+        'fixed inset-y-0 left-0 z-30 transition-transform duration-300 ease-in-out',
+        // Desktop: always visible, relative in flow
+        'lg:relative lg:translate-x-0 lg:z-auto',
+        open ? 'translate-x-0' : '-translate-x-full'
+      )}
+    >
+      {/* Logo + close button on mobile */}
       <div className="flex items-center gap-3 px-6 py-5 border-b border-white/10">
-        <div className="w-9 h-9 bg-maersk-sky rounded-lg flex items-center justify-center">
+        <div className="w-9 h-9 bg-maersk-sky rounded-lg flex items-center justify-center flex-shrink-0">
           <Ship className="w-5 h-5 text-white" />
         </div>
-        <div>
+        <div className="flex-1">
           <p className="text-white font-semibold text-sm leading-tight">Maersk</p>
           <p className="text-maersk-sky text-xs leading-tight">Claims Portal</p>
         </div>
+        <button onClick={close} className="lg:hidden text-white/60 hover:text-white p-1">
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-4">
+      <nav className="flex-1 px-3 py-4 overflow-y-auto">
         <p className="text-white/40 text-xs font-medium uppercase tracking-wider px-3 mb-2">Main Menu</p>
         <ul className="space-y-0.5">
           {allowedItems.map(({ to, icon: Icon, label, exact }) => (
@@ -88,22 +83,19 @@ export default function Sidebar() {
               <NavLink
                 to={to}
                 end={exact}
+                onClick={close}
                 className={({ isActive }) =>
                   clsx(
                     'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150',
-                    isActive
-                      ? 'bg-maersk-sky/20 text-white'
-                      : 'text-white/60 hover:text-white hover:bg-white/10'
+                    isActive ? 'bg-maersk-sky/20 text-white' : 'text-white/60 hover:text-white hover:bg-white/10'
                   )
                 }
               >
                 {({ isActive }) => (
                   <>
-                    <Icon className={clsx('w-4.5 h-4.5 w-[18px] h-[18px]', isActive ? 'text-maersk-sky' : '')} />
+                    <Icon className={clsx('w-[18px] h-[18px]', isActive ? 'text-maersk-sky' : '')} />
                     {label}
-                    {isActive && (
-                      <span className="ml-auto w-1.5 h-1.5 rounded-full bg-maersk-sky" />
-                    )}
+                    {isActive && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-maersk-sky" />}
                   </>
                 )}
               </NavLink>
@@ -137,6 +129,7 @@ export default function Sidebar() {
           <NavLink
             key={to}
             to={to}
+            onClick={close}
             className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/10 transition-all"
           >
             <Icon className="w-[18px] h-[18px]" />
@@ -144,7 +137,6 @@ export default function Sidebar() {
           </NavLink>
         ))}
 
-        {/* User */}
         <button className="w-full flex items-center gap-3 px-3 py-2.5 mt-2 rounded-lg hover:bg-white/10 transition-all">
           <div className="w-8 h-8 rounded-full bg-maersk-sky flex items-center justify-center flex-shrink-0">
             <span className="text-white text-xs font-bold">
@@ -159,10 +151,7 @@ export default function Sidebar() {
         </button>
 
         <button
-          onClick={() => {
-            logout();
-            navigate('/login', { replace: true });
-          }}
+          onClick={() => { logout(); navigate('/login', { replace: true }); }}
           className="w-full flex items-center gap-3 px-3 py-2 mt-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/10 transition-all"
         >
           <LogOut className="w-[18px] h-[18px]" />
