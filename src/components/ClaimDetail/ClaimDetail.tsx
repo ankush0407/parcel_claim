@@ -189,8 +189,8 @@ export default function ClaimDetail({ claim }: ClaimDetailProps) {
             <DetailRow label="Destination Zip" value={claim.shipment.destinationZip} />
             <DetailRow label="Last Tracking Event" value={claim.shipment.lastTrackingEvent} />
             <DetailRow label="Last Event Date" value={claim.shipment.lastTrackingEventDate ? formatDate(claim.shipment.lastTrackingEventDate) : undefined} />
-            <DetailRow label="Shipping Charges" value={claim.shipment.shippingCharge != null ? formatCurrency(claim.shipment.shippingCharge, claim.shipment.currency) : undefined} />
-            <DetailRow label="Item Value" value={claim.shipment.itemValue != null ? formatCurrency(claim.shipment.itemValue, claim.shipment.currency) : undefined} />
+            <DetailRow label="Shipping Charges" value={claim.shipment.shippingCharge != null ? formatCurrency(claim.shipment.shippingCharge, claim.shipment.currency ?? claim.currency) : undefined} />
+            <DetailRow label="Item Value" value={claim.shipment.itemValue != null ? formatCurrency(claim.shipment.itemValue, claim.shipment.currency ?? claim.currency) : undefined} />
             <DetailRow label="Item Weight" value={claim.shipment.itemWeight} />
           </div>
 

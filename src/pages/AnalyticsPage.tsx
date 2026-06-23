@@ -64,8 +64,8 @@ export default function AnalyticsPage() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
-          <ClaimsByStatus />
-          <ClaimsByType />
+          <ClaimsByStatus claims={claims} />
+          <ClaimsByType claims={claims} />
 
           {/* Claims by Carrier */}
           <div className="bg-white rounded-xl p-5 shadow-sm">

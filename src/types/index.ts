@@ -62,23 +62,35 @@ export interface ContactInfo {
 
 export interface ShipmentInfo {
   trackingNumber: string;
-  carrierName: string;
-  clientName: string;
-  clientOrderNumber: string;
-  originLocation: string;
-  destinationLocation: string;
-  originZip: string;
-  destinationZip: string;
+  carrierName?: string;
+  carrier?: string;
+  clientName?: string;
+  clientOrderNumber?: string;
+  originLocation?: string;
+  destinationLocation?: string;
+  originZip?: string;
+  destinationZip?: string;
+  origin?: string;
+  destination?: string;
   itemValue?: number;
-  itemWeight: string;
+  insuredValue?: number;
+  itemWeight?: string;
+  weight?: string;
   shippingCharge?: number;
   currency: string;
-  customerAddress: string;
-  customerEmail: string;
-  customerPhone: string;
+  customerAddress?: string;
+  customerEmail?: string;
+  customerPhone?: string;
   labelPrintDate?: string;
   lastTrackingEvent?: string;
   lastTrackingEventDate?: string;
+  bookingReference?: string;
+  service?: string;
+  shipDate?: string;
+  deliveryDate?: string;
+  dimensions?: string;
+  commodityType?: string;
+  containerNumber?: string;
 }
 
 export interface Evidence {
@@ -111,6 +123,7 @@ export interface Claim {
   id: string;
   claimNumber: string;
   trackingNumber: string;
+  bookingReference?: string;
   carrier: string;
   type: ClaimType;
   status: ClaimStatus;
