@@ -1,6 +1,8 @@
 import { ChartDataPoint, Claim, DashboardMetrics, User } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8787';
+// Empty string = relative URLs (/api/...) — works on Vercel and any same-origin host.
+// For local dev set VITE_API_BASE_URL=http://localhost:8787 in .env.local
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE_URL}${path}`, {
